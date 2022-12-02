@@ -1,9 +1,6 @@
-package com.example.restapi;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+package apis;
 import com.google.gson.*;
 import com.google.gson.Gson;
-import core.Interfaces.IStudentService;
 import core.Repositories.StudentsRepository;
 import core.Services.StudentService;
 
@@ -13,10 +10,7 @@ import javax.servlet.http.HttpServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Type;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 @WebServlet(name = "StudentServlet", value = "/StudentServlet")

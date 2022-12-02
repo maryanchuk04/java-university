@@ -1,4 +1,4 @@
-package com.example.restapi;
+package apis;
 
 
 public class object{
