@@ -1,0 +1,64 @@
+//       var speciality = new Speciality("Applied Math");
+//        Student student = new Student.Builder()
+//                .withFirstName("Maks")
+//                .withLastName("Maryanchuk")
+//                .withBirthday(LocalDate.of(2004,01,01))
+//                .withSex(Sex.Male)
+//                .withSpeciality(speciality)
+//                .withGroup(new Group(1))
+//                .withMarks(generateMarks(4))
+//                .withEmail("lion20914king@gmail.com")
+//                .build();
+//        System.out.println(student);
+//
+//        Student studentVova = new Student.Builder()
+//                .withFirstName("Vova")
+//                .withLastName("Romaniuk")
+//                .withBirthday(LocalDate.now())
+//                .withSex(Sex.Male)
+//                .withGroup(new Group(1))
+//                .withSpeciality(new Speciality("Applied Math"))
+//                .withMarks(generateMarks(5))
+//                .build();
+//        System.out.println();
+//        System.out.println(studentVova);
+//
+//        Teacher teacher = new Teacher.Builder()
+//                .withFirstName("Lutsiuk")
+//                .withLastName("Yuriy")
+//                .withSex(Sex.Male)
+//                .withBirthday(LocalDate.now())
+//                .withExperience(20)
+//                .withPosition(Position.DIRECTOR)
+//                .build();
+//
+//        System.out.println(teacher.toString());
+//
+//
+//        var listStudents = new ArrayList<Student>();
+//        listStudents.add(student);
+//        listStudents.add(studentVova);
+//      //  Part with testing JsonSerializer
+//        JsonSerialize<Student> studentJsonSerialize = new JsonSerialize<Student>();
+//        //var res = studentJsonSerialize.readObjectsList("/Users/mac/IdeaProjects/first/src/main/java/Project/Examples/students.json", Student.class);
+//        studentJsonSerialize.writeObject("/Users/mac/IdeaProjects/first/src/main/java/Project/Examples/students.json", student);
+////        Student res = studentJsonSerialize.readObject("/Users/mac/IdeaProjects/first/src/main/java/Project/Examples/students.json", Student.class);
+//
+////        for (var i:
+////             res) {
+////            System.out.println(i.toString());
+////        }
+//
+////        XmlSerialize<Student> studentXmlSerialize = new XmlSerialize<>();
+////
+//////        studentXmlSerialize.writeObject("/Users/mac/IdeaProjects/first/src/main/java/Project/Examples/students.xml",
+//////                new StudentDto(student.getFirstName(), student.getLastName(), student.getBirthday().toString(), student.getSex(), student.getGroup(), student.getSpeciality(), student.getMarks()));
+////
+////        //studentXmlSerialize.writeList("/Users/mac/IdeaProjects/first/src/main/java/Project/Examples/students.xml", listStudents);
+////        var res = studentXmlSerialize.readObjectsList("/Users/mac/IdeaProjects/first/src/main/java/Project/Examples/students.xml", Student.class);
+////        System.out.println(res);
+//
+////        var txtSerialize = new TxtSerialize<Student>();
+////        txtSerialize.writeObject("/Users/mac/IdeaProjects/first/src/main/java/Project/Examples/students.txt", student);
+////        var res = txtSerialize.readObject("/Users/mac/IdeaProjects/first/src/main/java/Project/Examples/students.txt", Student.class);
+////        System.out.println(res);
