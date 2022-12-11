@@ -13,6 +13,4 @@ public class MySqlConnection {
         }
         return DriverManager.getConnection("jdbc:mysql://localhost:33061/University", DbSettings.dbuser, DbSettings.dbpass);
     }
-
-
 }

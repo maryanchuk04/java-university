@@ -1,0 +1,15 @@
+.student-card{
+  height: fit-content;
+  padding: 30px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
+}
+
+.student-card h2,h3,h4{
+  margin-bottom: 5px;
+}
+
+.student-card .stud{
+
+}

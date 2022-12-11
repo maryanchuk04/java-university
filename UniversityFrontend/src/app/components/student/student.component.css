@@ -1,0 +1,25 @@
+.students-list .container{
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 30px;
+}
+
+.students-list .stud:first-child{
+  margin-top: 20px;
+}
+
+.container .search-container{
+  width: 100%;
+  margin: 20px 0;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.search-container #search{
+  width: 100%;
+  font-size: 25px;
+  padding: 5px 20px;
+}
+
+

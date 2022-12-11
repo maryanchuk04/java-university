@@ -1,0 +1,9 @@
+<div class='student-card'>
+  <h2>Студент : {{student.firstName+ "  " + student.lastName}}</h2>
+  <h3>Дата народження:  {{student.birthday}}</h3>
+  <h4>Електронна пошта:  {{student.email}}</h4>
+  <h4 style="display: flex;">Стать:
+    <h4 *ngIf="student.sex == 'Male'">Чоловіча</h4>
+    <h4 *ngIf="student.sex != 'Male'">Жіноча</h4>
+  </h4>
+</div>

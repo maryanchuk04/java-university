@@ -1,0 +1,50 @@
+header{
+  display: flex;
+  height: 10vh;
+  align-items: center;
+  background: #f3904f; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f3904f, #3b4371); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f3904f, #3b4371); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
+
+}
+
+header .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1{
+  color : white;
+}
+
+.menu-list{
+  height: 5vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.menu-list li a{
+  color : #ffffff;
+  font-size: 24px;
+  margin: 0 20px;
+  transition: 0.45s;
+}
+
+.menu-list li{
+  list-style: none;
+  transition: 0.40s;
+}
+
+.menu-list li:hover{
+
+  transform: scale(1.2);
+  text-shadow:  5px 3px 0px #504646,  5px 3px 0px #996464
+}
+
+.menu-list li a:hover{
+  color:#f16a5d;
+}
+

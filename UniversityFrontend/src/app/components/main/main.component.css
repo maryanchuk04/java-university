@@ -1,0 +1,33 @@
+.main{
+  display: grid;
+  place-items: center;
+  height: 90vh;
+}
+
+.main h1{
+  font-size: 50px;
+  text-align: center;
+}
+
+
+.custom-shape-divider-bottom-1670182675 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1670182675 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 200px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1670182675 .shape-fill {
+  fill: #f16a5d;
+}

@@ -13,5 +13,7 @@ public interface IStudentService {
     List<Student> getAllStudents();
 
     Student getStudentById(UUID id);
+
+    Student insertStudent(Student student);
 }
 

@@ -2,6 +2,7 @@ package core.Services;
 
 
 import core.Interfaces.IStudentService;
+import core.Models.Group;
 import core.Models.Student;
 import core.Repositories.StudentsRepository;
 
@@ -33,5 +34,17 @@ public class StudentService implements IStudentService {
         return this.studentRepository.getById(id);
     }
 
+    @Override
+    public Student insertStudent(Student student) {
+        var newStudent = studentRepository.insertStudent(student);
+        if(newStudent == null){
+            throw new NullPointerException("Student is not inserted");
+        }
 
+        return newStudent;
+    }
+
+    public List<Student> getFiltered(String name){
+        return studentRepository.getFiltered("lastName", name);
+    }
 }

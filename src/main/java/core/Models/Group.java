@@ -5,11 +5,9 @@ import jakarta.validation.constraints.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.UUID;
 
 public class Group extends BaseModel {
-    @JsonIgnore
-    @Nullable
-    private Teacher curator;
     @NotNull
     private int number;
     @NotNull
@@ -18,7 +16,6 @@ public class Group extends BaseModel {
     public Group() {}
 
     public Group(Teacher curator, int number, List<Student> students, int countStudents) {
-        this.curator = curator;
         this.number = number;
 //        this.students = students;
         this.countStudents = countStudents;
@@ -28,12 +25,9 @@ public class Group extends BaseModel {
         this.number = number;
     }
 
-    public Teacher getCurator() {
-        return curator;
-    }
-
-    public void setCurator(Teacher curator) {
-        this.curator = curator;
+    public Group(UUID id, int number){
+        this.setId(id);
+        this.number = number;
     }
 
     public int getNumber() {
@@ -49,7 +43,6 @@ public class Group extends BaseModel {
     @Override
     public String toString() {
         return "Group{" +
-                "\n\t\tcurator=" + curator +
                 "\n\t\tnumber=" + number +
                 "\n\t\tcountStudents=" + countStudents +
                 "\n\t}";

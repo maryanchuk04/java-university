@@ -1,0 +1,13 @@
+<div class="container">
+  <div class = "search-container">
+    <input type="text" id = "search"
+      [ngModel]="searchText"
+      (ngModelChange)="handleChange($event)"
+      placeholder="Шукати групу..."
+    />
+  </div>
+  <div class="groups">
+    <app-group *ngFor="let item of groups "  [group]="item"></app-group>
+  </div>
+
+</div>

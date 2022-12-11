@@ -36,4 +36,6 @@ public interface BaseSQLRepository {
             throwable.printStackTrace();
         }
     }
+
+
 }

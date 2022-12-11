@@ -3,6 +3,7 @@ package core.Repositories;
 import core.Db.MySqlConnection;
 import core.Enums.Sex;
 import core.Exceptions.ValidationException;
+import core.Models.Group;
 import core.Models.Student;
 
 import java.sql.Connection;
@@ -10,11 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,7 +23,6 @@ public class StudentsRepository {
     private static final String GET_ALL = "SELECT * FROM " + STUDENT_TABLE + " ," + PERSON_TABLE;
 
     public List<Student> getAll() {
-        DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
         var studentsList = new ArrayList<Student>();
         try (Connection conn = MySqlConnection.getConnection()) {
             Statement statement = conn.createStatement();
@@ -46,22 +44,6 @@ public class StudentsRepository {
         return studentsList;
     }
 
-    public List<Student> getFilteredStudentList(String query){
-        List<Student> studentList = new ArrayList<>();
-
-        try(Connection connection = MySqlConnection.getConnection();
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(query)) {
-
-            while (rs.next()) {
-                Student student = new Student();
-                studentList.add(student);
-            }
-        }catch (SQLException throwable) {
-            throwable.printStackTrace();
-        }
-        return studentList;
-    }
 
     public Student getById(UUID id) {
         Student student = null;
@@ -85,7 +67,7 @@ public class StudentsRepository {
         return student;
     }
 
-    public UUID insertStudent(Student student) {
+    public Student insertStudent(Student student) {
         var id = UUID.randomUUID();
         String ADD_NEW_PERSON = "INSERT INTO Persons(id, firstName, lastName, birthday, sex)" + "values(?,?,?,?,?)";
         String ADD_NEW_STUDENT = "INSERT INTO Students(email, groupId, specialityId, personId)" + "values(?,?,?,?)";
@@ -112,12 +94,12 @@ public class StudentsRepository {
             } else statementStudent.setString(3, null);
             statementStudent.setString(4, id.toString());
             statementStudent.executeUpdate();
-
         }catch (SQLException throwable) {
             throwable.printStackTrace();
+            student = null;
         }
 
-        return id;
+        return student;
     }
 
     public void deleteStudent(UUID id) {
@@ -127,5 +109,29 @@ public class StudentsRepository {
         }catch (SQLException throwable) {
             throwable.printStackTrace();
         }
+    }
+
+    public List<Student> getFiltered(String fieldName, String searchText){
+        List<Student> studentList = new ArrayList<>();
+        String SEARCH_QUERY = "SELECT * FROM "+ STUDENT_TABLE + ", " + PERSON_TABLE + " WHERE "+ fieldName +" like '%"+searchText+"%' OR firstName LIKE '%"+searchText +"%'";
+        try (Connection connection = MySqlConnection.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet rs = statement.executeQuery(SEARCH_QUERY);
+        ) {
+            while (rs.next()) {
+                var student = new Student.Builder()
+                        .withId(UUID.fromString(rs.getString("id")))
+                        .withFirstName(rs.getString("firstName"))
+                        .withLastName(rs.getString("lastName"))
+                        .withBirthday(LocalDate.parse(rs.getString("birthday")))
+                        .withEmail(rs.getString("email"))
+                        .withSex(Sex.valueOf(rs.getString("sex")))
+                        .build();
+                studentList.add(student);
+            }
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
+        return studentList;
     }
 }

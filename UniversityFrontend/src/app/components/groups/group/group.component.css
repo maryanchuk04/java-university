@@ -1,0 +1,17 @@
+.group{
+  padding: 50px;
+  position: relative;
+  border-radius: 30% 70% 41% 59% / 49% 52% 48% 51%;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+
+.group h2{
+  text-align: center;
+ text-shadow:  5px 4px 15px #ea8b50,
+  20px 20px 60px #ff0000;
+
+}
+
+
+

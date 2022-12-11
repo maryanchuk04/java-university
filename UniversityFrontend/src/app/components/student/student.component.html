@@ -1,0 +1,12 @@
+<div class="students-list">
+  <div class="container">
+      <div class="search-container">
+        <input type="text" id= "search" [ngModel]="searchText"
+        (ngModelChange)="handleChange($event)"
+        placeholder="Пошук студента"
+        />
+      </div>
+      <app-student-card *ngFor="let item of studentsList" [student]="item" class='stud'>
+      </app-student-card>
+  </div>
+</div>

@@ -35,4 +35,24 @@ public class DataBaseHandler {
         createTable("Teachers", CREATE_TEACHERS_TABLE);
         createTable("Groupes", CREATE_GROUP_TABLE);
     }
+
+    public static void deleteAllTables(){
+        dropTable("Students");
+        dropTable("Persons");
+        dropTable("Marks");
+        dropTable("Lessons");
+        dropTable("Speciality");
+        dropTable("Teachers");
+        dropTable("Groupes");
+    }
+
+    private static void dropTable(String tableName){
+        try (Connection conn = MySqlConnection.getConnection();
+             var statement = conn.createStatement();) {
+            statement.executeUpdate("DROP TABLE " + tableName);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
 }

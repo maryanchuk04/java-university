@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'UniversityFrontend';
+  menuList: MenuItem[] = [
+    {title : "Home", url : "/"},
+    { title : "Students", url : "/students"},
+    {title : "Groups", url : "/groups"},
+    { title : "Teachers", url : "/teachers"}
+  ]
+}
+
+interface MenuItem{
+ title: string
+ url: string
 }
