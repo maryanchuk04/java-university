@@ -39,13 +39,10 @@ public class GroupServlet extends HttpServlet {
         if(req.getParameter("searchText") == null){
             var list = groupRepository.getAll();
             String jsonData = gson.toJson(list);
-            PrintWriter out = resp.getWriter();
-            try {
+            try (PrintWriter out = resp.getWriter()) {
                 out.println(jsonData);
             } catch (Exception e) {
                 resp.setStatus(400);
-            } finally {
-                out.close();
             }
             return;
         }

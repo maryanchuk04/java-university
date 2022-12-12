@@ -2,10 +2,8 @@ package core;
 
 import core.Enums.Sex;
 import core.Exceptions.ValidationException;
-import core.Models.Group;
-import core.Models.Mark;
-import core.Models.Speciality;
-import core.Models.Student;
+import core.Models.*;
+import core.Repositories.LessonsRepository;
 import core.Repositories.StudentsRepository;
 import core.Repositories.TeachersRepository;
 import core.Services.StudentService;
@@ -43,8 +41,15 @@ public class Main {
         System.out.println(st);
 
         var repo = new TeachersRepository();
-        repo.getById(UUID.fromString("e9723775-bb62-4e00-b476-ac50c87f3b68"));
+        var a = repo.getById(UUID.fromString("e9723775-bb62-4e00-b476-ac50c87f3b68"));
         System.out.println(repo);
+
+
+        var les = new LessonsRepository();
+        var lesson = new Lesson();
+        lesson.setName("Math");
+        lesson.setTeacher(a);
+        les.insert(lesson);
     }
 }
 
