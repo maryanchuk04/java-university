@@ -2,13 +2,16 @@ package core.Models;
 
 
 import core.Enums.Position;
+import jakarta.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class Teacher extends Person {
+    @Nullable
     private List<Lesson> lessons;
+    @Nullable
     private List<Group> groups;
     private Position position;
     private int experience;

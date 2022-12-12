@@ -32,6 +32,7 @@ public class Person extends BaseModel {
     @JsonProperty("sex")
     private Sex sex;
     public Person(){}
+
     protected Person(Builder<?> builder) {
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;

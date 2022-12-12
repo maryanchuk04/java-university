@@ -1,5 +1,5 @@
 package core.Enums;
 
 public enum Position {
-    DIRECTOR, TEACHER, HEAD_TEACHER
+    Director, Teacher, Head_Teacher
 }
